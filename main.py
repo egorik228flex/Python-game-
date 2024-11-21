@@ -30,7 +30,7 @@ while True:
 			pygame.quit()
 			sys.exit()
 		if event.type == pygame.KEYDOWN:
-			if game.game_over == True:
+			if game.game_over:
 				game.game_over = False
 				game.reset()
 			if event.key == pygame.K_LEFT and game.game_over == False:
@@ -51,7 +51,7 @@ while True:
 	screen.blit(score_surface, (365, 20, 50, 50))
 	screen.blit(next_surface, (375, 180, 50, 50))
 
-	if game.game_over == True:
+	if game.game_over:
 		screen.blit(game_over_surface, (320, 450, 50, 50))
 
 	pygame.draw.rect(screen, Colors.light_blue, score_rect, 0, 10)

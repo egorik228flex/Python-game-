@@ -54,7 +54,7 @@ class Game:
 		rows_cleared = self.grid.clear_full_rows()
 		if rows_cleared > 0:
 			self.update_score(rows_cleared, 0)
-		if self.block_fits() == False:
+		if not self.block_fits():
 			self.game_over = True
 
 	def reset(self):
@@ -67,7 +67,7 @@ class Game:
 	def block_fits(self):
 		tiles = self.current_block.get_cell_positions()
 		for tile in tiles:
-			if self.grid.is_empty(tile.row, tile.column) == False:
+			if not self.grid.is_empty(tile.row, tile.column):
 				return False
 		return True
 
@@ -79,7 +79,7 @@ class Game:
 	def block_inside(self):
 		tiles = self.current_block.get_cell_positions()
 		for tile in tiles:
-			if self.grid.is_inside(tile.row, tile.column) == False:
+			if not self.grid.is_inside(tile.row, tile.column):
 				return False
 		return True
 
